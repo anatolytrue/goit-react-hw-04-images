@@ -74,10 +74,10 @@ class App extends Component {
       <div className={css.App}>
         <Searchbar onSubmit={this.handleFormSubmit} />
         <ImageGallery searchQuery={searchQuery} />
-        {/* <ToastContainer
+        <ToastContainer
           position="top-center"
           autoClose={3000}
-        /> */}
+        />
         </div>
       );
   }

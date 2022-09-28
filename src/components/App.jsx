@@ -5,7 +5,7 @@ import ImageGallery from './ImageGallery/ImageGallery';
 // import fetchImagesApi from 'Services/pixabayAPI';
 // import {NotificationContainer, NotificationManager} from 'react-notifications';
 import { ToastContainer } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 class App extends Component {

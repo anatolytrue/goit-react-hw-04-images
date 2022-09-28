@@ -59,6 +59,7 @@ class ImageGallery extends Component {
 
         if (page !== prevState.page && prevSearchQuery === nextSearchQuery) {
             this.setState({ status: 'pending' });
+
             if (responseTotalHits / 12 <= page) {
                 this.setState({loadMore: false})
             }
@@ -98,23 +99,23 @@ class ImageGallery extends Component {
         const { status, images, loadMore, imageSelected, error } = this.state;
 
         if (status === 'idle') {
-            return <div>What pics You want to find?</div>
+            return (<div>What pics You want to find?</div>)
         }
         if (status === 'pending') {
             return <Loader/>
         }
         if (status === 'rejected') {
-            return <ImageErrorView message={error.message}/>
+            return<><ImageErrorView message={error.message} /></>
         }
-        if (status === ' resolved') {
+        if (status === 'resolved') {
             return (
-                <div className={css.ImageGallery}>
-                    <li>
+                <div>
+                    <ul className={css.ImageGallery}>
                         <ImageGalleryItem
                         images={images}
                         onClick={this.handleSelectImage}
-                    />
-                    </li>
+                        />
+                    </ul>
                     {loadMore && <Button onClick={this.handleClickButton} />}
                     {imageSelected && (
                         <Modal

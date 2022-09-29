@@ -1,14 +1,14 @@
 import css from './ImageGalleryItem.module.css'
 
-const ImageGalleryItem = ({images, onClick}) => {
+const ImageGalleryItem = ({ images, onClick }) => {
     return (
         <>
-            {images && 
-                images.map( (image, idx ) => {
+            {images &&
+                images.map((image, idx) => {
                     const { id, webformatURL, tags } = image;
                     return (
-                        <li key={idx} className={css.ImageGalleryItem}>
-                            <image
+                        <li key={idx} className={css.imageGalleryItem}>
+                            <img
                                 src={webformatURL}
                                 alt={tags}
                                 id={id}
@@ -16,11 +16,11 @@ const ImageGalleryItem = ({images, onClick}) => {
                                 className={css.ImageGalleryItemImage}
                             />
                         </li>
-                    )
+                    );
                 })}
         </>
-    )
+    );
     
-}
+};
 
 export default ImageGalleryItem;

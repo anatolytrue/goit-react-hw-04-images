@@ -22,14 +22,14 @@ export default class Searchbar extends Component{
                 position: "top-center",
                 autoClose: 5000
             });
-            return
+            return;
         }
         this.props.onSubmit(searchQuery);
         this.reset();
     }
 
     reset = () => {
-        this.setState({searchQuery:''})
+        this.setState({searchQuery: ''})
     }
 
     render() {

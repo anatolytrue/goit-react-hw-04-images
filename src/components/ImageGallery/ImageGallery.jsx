@@ -81,11 +81,11 @@ class ImageGallery extends Component {
     }
 
     handleSelectImage = image => {
-        this.setState({ imageSelected: image })
+        this.setState({ imageSelected: image });
     };
 
     handleCloseModal = () => {
-        this.setState({ imageSelected: null })
+        this.setState({ imageSelected: null });
     };
 
     handleClickButton = () => {
@@ -99,24 +99,24 @@ class ImageGallery extends Component {
         const { status, images, loadMore, imageSelected, error } = this.state;
 
         if (status === 'idle') {
-            return (<div>What pics You want to find?</div>)
+            return <div>What pics You want to find?</div>
         }
         if (status === 'pending') {
-            return <Loader/>
+            return <Loader />
         }
         if (status === 'rejected') {
             return<><ImageErrorView message={error.message} /></>
         }
         if (status === 'resolved') {
             return (
-                <div>
+                <>
                     <ul className={css.ImageGallery}>
                         <ImageGalleryItem
                         images={images}
                         onClick={this.handleSelectImage}
                         />
                     </ul>
-                    {loadMore && <Button onClick={this.handleClickButton} />}
+                    {/* {loadMore && <Button onClick={this.handleClickButton} />} */}
                     {imageSelected && (
                         <Modal
                             onClick={this.handleCloseModal}
@@ -124,7 +124,7 @@ class ImageGallery extends Component {
                             alt={imageSelected.tags}
                         />
                     )}
-                </div>
+                </>
             );
         }
     }

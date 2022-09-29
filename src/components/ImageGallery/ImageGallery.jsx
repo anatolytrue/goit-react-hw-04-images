@@ -3,7 +3,7 @@ import { Component } from 'react';
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 import { toast } from 'react-toastify';
 import fetchImages from 'Services/pixabayAPI';
-import  Button  from 'components/Button/Button';
+// import  Button  from 'components/Button/Button';
 import Loader from 'components/Loader/Loader';
 import Modal from 'components/Modal/Modal';
 import ImageErrorView from 'components/ImageErrorView';
@@ -96,7 +96,9 @@ class ImageGallery extends Component {
 
     render() {
 
-        const { status, images, loadMore, imageSelected, error } = this.state;
+        const { status, images,
+            // loadMore,
+            imageSelected, error } = this.state;
 
         if (status === 'idle') {
             return <div>What pics You want to find?</div>

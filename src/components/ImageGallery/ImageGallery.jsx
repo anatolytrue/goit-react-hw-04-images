@@ -3,7 +3,7 @@ import { Component } from 'react';
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 import { toast } from 'react-toastify';
 import fetchImages from 'Services/pixabayAPI';
-// import  Button  from 'components/Button/Button';
+import Button from 'components/Button/Button';
 import Loader from 'components/Loader/Loader';
 import Modal from 'components/Modal/Modal';
 import ImageErrorView from 'components/ImageErrorView';
@@ -88,7 +88,7 @@ class ImageGallery extends Component {
         this.setState({ imageSelected: null });
     };
 
-    handleClickButton = () => {
+    handleLoadMore = () => {
         this.setState(prevState => ({
             page: prevState.page + 1,
         }));
@@ -96,9 +96,7 @@ class ImageGallery extends Component {
 
     render() {
 
-        const { status, images,
-            // loadMore,
-            imageSelected, error } = this.state;
+        const { status, images, loadMore, imageSelected, error } = this.state;
 
         if (status === 'idle') {
             return <div>What pics You want to find?</div>
@@ -107,7 +105,7 @@ class ImageGallery extends Component {
             return <Loader />
         }
         if (status === 'rejected') {
-            return<><ImageErrorView message={error.message} /></>
+            return<ImageErrorView message={error.message} />
         }
         if (status === 'resolved') {
             return (
@@ -118,7 +116,7 @@ class ImageGallery extends Component {
                         onClick={this.handleSelectImage}
                         />
                     </ul>
-                    {/* {loadMore && <Button onClick={this.handleClickButton} />} */}
+                    {loadMore && (<Button onClick={this.handleLoadMore} />)}
                     {imageSelected && (
                         <Modal
                             onClick={this.handleCloseModal}

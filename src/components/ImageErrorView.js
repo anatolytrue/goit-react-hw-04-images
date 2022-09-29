@@ -1,4 +1,5 @@
 import errorImage from '../Services/sadcat.jpg';
+import PropTypes from 'prop-types';
 
 export default function ImageErrorView({ message }) {
     return (
@@ -8,3 +9,7 @@ export default function ImageErrorView({ message }) {
         </div>
     )
 }
+
+ImageErrorView.propTypes = {
+    message: PropTypes.string.isRequired,
+};

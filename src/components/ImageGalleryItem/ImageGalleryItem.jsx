@@ -1,26 +1,21 @@
 import css from './ImageGalleryItem.module.css'
+import PropTypes from 'prop-types';
 
-const ImageGalleryItem = ({ images, onClick }) => {
+export default function ImageGalleryItem({ previewImage, alt, onClickImage }) {
     return (
-        <>
-            {images &&
-                images.map((image, idx) => {
-                    const { id, webformatURL, tags } = image;
-                    return (
-                        <li key={idx} className={css.imageGalleryItem}>
-                            <img
-                                src={webformatURL}
-                                alt={tags}
-                                id={id}
-                                onClick={() => onClick(image)}
-                                className={css.ImageGalleryItemImage}
-                            />
-                        </li>
-                    );
-                })}
-        </>
+        <li className={css.imageGalleryItem}>
+            <img
+                className={css.ImageGalleryItemImage}
+                src={previewImage}
+                alt={alt}
+                onClick={onClickImage}
+            />
+        </li>
     );
-    
-};
+}
 
-export default ImageGalleryItem;
+ImageGalleryItem.propTypes = {
+    previewImage: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+    onClickImage: PropTypes.func.isRequired,
+};

@@ -13,3 +13,9 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.galleryStartMessage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
